@@ -104,11 +104,17 @@ let allWagesFor = function () {
 
     return payable
 } 
-function calculatePayroll(array){
-return array.reduce((memoo,emp) => {
-  return memoo += allWagesFor.call(this)},0)
+// function calculatePayroll(array){
+// return array.reduce((memoo,emp) => {
+//   return memoo += allWagesFor.call(this)},0)
   
-}
+// }
+
+function calculatePayroll(employeeRecords) {
+    return employeeRecords.map(element => allWagesFor.call(element)).reduce(function(total, element) {
+        return total + element
+    }, 0)
+
  const csvTimesOut = [
         ["Thor", ["2018-01-01 1600", "2018-01-02 1800", "2018-01-03 1800"]],
         ["Loki", ["2018-01-01 1700", "2018-01-02 1800", "2018-01-03 1800"]],
